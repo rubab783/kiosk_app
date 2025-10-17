@@ -1,0 +1,349 @@
+@use '../../../styles.scss' as *;
+
+.home-container {
+  padding: 1.5rem 3rem;
+  background: var(--bg-light);
+  font-family: 'IBM Plex Sans', sans-serif;
+  color: #fff;
+
+  /* ====== Top Bar ====== */
+  .top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+
+    .menu-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 600;
+      font-size: 1.2rem;
+      font-family: 'Archivo', sans-serif;
+      color: var(--primary-color);
+
+      i {
+        font-size: 1.6rem;
+        display: none; // hidden by default (desktop)
+      }
+    }
+
+    .order-view {
+      color: var(--primary-color);
+      border: 2px solid var(--primary-color);
+      font-family: 'Archivo', sans-serif;
+      padding: 0.5rem 1.2rem;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 500;
+      transition: 0.3s ease;
+
+      &:hover {
+        background: var(--primary-color);
+        color: #fff;
+      }
+    }
+  }
+
+  /* ====== Main Layout (Categories + Food Grid) ====== */
+  .main-content {
+    display: flex;
+    gap: 2rem;
+    align-items: flex-start;
+  }
+
+  /* ====== Categories (Left Side) ====== */
+  .categories {
+    flex: 0 0 180px;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+
+    .category {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      cursor: pointer;
+      transition: 0.2s ease;
+
+      img {
+        width: 55px;
+        height: 55px;
+        object-fit: contain;
+        margin-bottom: 5px;
+      }
+
+      p {
+        font-size: 0.9rem;
+        color: var(--text-dark);
+      }
+
+      &:hover p {
+        color: var(--primary-color);
+      }
+    }
+  }
+
+  /* ====== Food Grid (Right Side) ====== */
+  .food-grid {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1.5rem;
+
+    .food-card {
+      background: none;
+      border-radius: 12px;
+      overflow: hidden;
+      transition: transform 0.2s ease;
+
+      &:hover {
+        transform: translateY(-4px);
+      }
+
+      .image-wrapper {
+        position: relative;
+        width: 100%;
+        height: 420px; // increased height
+
+        img {
+          width: 96%;
+          margin: 2%;
+          height: 100%;
+          border-radius: 12px;
+          object-fit: cover;
+        }
+
+        /* Overlay for name + price */
+        .food-info-overlay {
+          position: absolute;
+          top: 12px;
+          left: 16px;
+          right: 16px;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          color: #fff;
+          font-family: 'Archivo', sans-serif;
+          font-size: 1rem;
+          font-weight: 600;
+          text-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+          z-index: 2;
+        }
+
+        /* Add to bucket button */
+        .add-btn {
+          font-family: 'Archivo', sans-serif;
+          width: 92%;
+          border: none;
+          background: var(--secondary-color);
+          color: #fff;
+          padding: 0.6rem 0;
+          font-size: 0.9rem;
+          font-weight: 600;
+          cursor: pointer;
+          border-radius: 12px;
+          position: absolute;
+          bottom: 10px;
+          left: 4%;
+          z-index: 2;
+          transition: background 0.3s ease;
+
+          &:hover {
+            background: var(--secondary-color-hover);
+          }
+        }
+
+        /* Optional dark overlay for text readability */
+        &::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          border-radius: 12px;
+          background: linear-gradient(
+            to bottom,
+            rgba(0, 0, 0, 0.35),
+            rgba(0, 0, 0, 0.1)
+          );
+          z-index: 1;
+        }
+      }
+    }
+  }
+
+  /* ====== Responsive ====== */
+  @media (max-width: 768px) {
+    padding: 1rem;
+
+    .main-content {
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    /* Show menu icon only on mobile */
+    .top-bar {
+      .menu-title i {
+        display: inline-block !important;
+      }
+    }
+
+    .categories {
+      flex-direction: row;
+      overflow-x: auto;
+      gap: 1rem;
+      padding-bottom: 0.5rem;
+
+      .category {
+        flex: 0 0 auto;
+
+        img {
+          width: 45px;
+          height: 45px;
+        }
+      }
+    }
+
+    .food-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+
+      .food-card {
+        .image-wrapper {
+          height: 340px;
+
+          .food-info-overlay {
+            font-size: 0.85rem;
+            top: 8px;
+            left: 10px;
+            right: 10px;
+          }
+
+          .add-btn {
+            font-size: 0.8rem;
+          }
+        }
+      }
+    }
+  }
+}
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideOut {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+}
+/* ====== Order View Popup ====== */
+.order-popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  z-index: 1000;
+  animation: fadeIn 0.3s ease forwards;
+}
+
+.popup-content {
+  background: #fff;
+  width: 100%;
+  border-radius: 20px 20px 0 0;
+  padding: 1.2rem;
+  max-height: 80%;
+  overflow-y: auto;
+  animation: slideUp 0.3s ease forwards;
+}
+
+.popup-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+
+  h2 {
+    color: var(--primary-color);
+    font-weight: 700;
+    font-family: 'Archivo', sans-serif;
+  }
+
+  .close-btn {
+    background: none;
+    border: none;
+    font-size: 1.6rem;
+    cursor: pointer;
+    color: var(--primary-color);
+  }
+}
+
+.popup-categories {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  .popup-category {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background: #f9f9f9;
+    padding: 0.8rem 1rem;
+    border-radius: 12px;
+    transition: 0.2s ease;
+    cursor: pointer;
+
+    &:hover {
+      background: #f1f1f1;
+    }
+
+    img {
+      width: 40px;
+      height: 40px;
+      object-fit: contain;
+    }
+
+    span {
+      font-weight: 600;
+      color: var(--text-dark);
+      font-family: 'Archivo', sans-serif;
+    }
+  }
+}
+
+/* Animations */
+@keyframes slideUp {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
