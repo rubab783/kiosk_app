@@ -2,16 +2,15 @@
   <!-- Top Navbar -->
   <div class="top-bar">
     <div class="menu-title">
-      <i class="ri-menu-line" (click)="toggleMenu()"></i>
       <span>Menu Categories</span>
     </div>
-    <button class="order-view" (click)="toggleOrderView()">Order View</button>
+    <button class="order-view">Order View</button>
   </div>
 
-  <!-- Main content: left categories + right food grid -->
+  <!-- Main content: Sidebar + Food Grid -->
   <div class="main-content">
-    <!-- Categories -->
-    <div class="categories" *ngIf="isMenuOpen">
+    <!-- Categories Sidebar -->
+    <div class="categories">
       <div class="category" *ngFor="let cat of categories">
         <img [src]="cat.icon" [alt]="cat.name" />
         <p>{{ cat.name }}</p>
@@ -29,37 +28,6 @@
           <img [src]="food.image" [alt]="food.name" />
           <button class="add-btn">+ ADD TO BUCKET</button>
         </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ✅ Order View Popup -->
-  <div class="order-popup" *ngIf="showOrderPopup">
-    <div class="popup-content">
-      <div class="popup-header">
-        <h2>Menu Categories</h2>
-        <button class="close-btn" (click)="toggleOrderView()">×</button>
-      </div>
-      <div class="popup-categories">
-        <div class="popup-category" *ngFor="let cat of categories">
-          <img [src]="cat.icon" [alt]="cat.name" />
-          <span>{{ cat.name }}</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<!-- Order View Popup -->
-<div class="order-popup" *ngIf="showOrderPopup" (click)="toggleOrderView()">
-  <div class="popup-content" (click)="$event.stopPropagation()">
-    <div class="popup-header">
-      <h2>Menu Categories</h2>
-      <button class="close-btn" (click)="toggleOrderView()">×</button>
-    </div>
-    <div class="popup-categories">
-      <div class="popup-category" *ngFor="let cat of categories">
-        <img [src]="cat.icon" [alt]="cat.name" />
-        <span>{{ cat.name }}</span>
       </div>
     </div>
   </div>
