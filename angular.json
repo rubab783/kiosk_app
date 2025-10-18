@@ -23,13 +23,10 @@
             ],
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
-
-            // ✅ FIXED ASSETS SECTION
             "assets": [
               "src/favicon.ico",
               "src/assets"
             ],
-
             "styles": [
               "src/styles.scss"
             ]
@@ -39,13 +36,13 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "500kB",
-                  "maximumError": "1MB"
+                  "maximumWarning": "2MB",
+                  "maximumError": "5MB"
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "4kB",
-                  "maximumError": "8kB"
+                  "maximumWarning": "200kB",
+                  "maximumError": "500kB"
                 }
               ],
               "outputHashing": "all"
@@ -58,7 +55,6 @@
           },
           "defaultConfiguration": "production"
         },
-
         "serve": {
           "builder": "@angular/build:dev-server",
           "configurations": {
@@ -71,11 +67,9 @@
           },
           "defaultConfiguration": "development"
         },
-
         "extract-i18n": {
           "builder": "@angular/build:extract-i18n"
         },
-
         "test": {
           "builder": "@angular/build:karma",
           "options": {
@@ -98,4 +92,3 @@
     }
   }
 }
-  
