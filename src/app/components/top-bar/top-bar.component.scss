@@ -1,0 +1,25 @@
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+
+  .menu-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: var(--primary-color);
+  }
+
+  .order-view {
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+    padding: 0.45rem 1rem;
+    border-radius: 6px;
+    font-weight: 500;
+    background: transparent;
+    cursor: pointer;
+  }
+}

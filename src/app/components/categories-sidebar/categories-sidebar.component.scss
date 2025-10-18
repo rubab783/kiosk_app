@@ -1,0 +1,63 @@
+.categories {
+  width: 68px; /* default sidebar width */
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem; /* reduce gap */
+  padding: 0.3rem 0; /* reduce padding */
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: var(--bg-light);
+  box-shadow: 0px 0px 4px 0px #00000040;
+  box-sizing: border-box; /* prevent extra spacing */
+}
+
+.categories .category {
+  background-color: white;
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  padding: 4px 6px; /* reduced padding */
+  transition: 0.2s ease;
+
+  &:hover p {
+    color: var(--primary-color);
+  }
+}
+
+.categories .category img {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+  margin-bottom: 2px;
+}
+
+.categories .category p {
+  font-size: 0.75rem;
+  color: var(--text-dark);
+  text-align: center;
+}
+
+/* Tablet */
+@media (max-width: 1200px) {
+  .categories {
+    width: 120px; /* reduce previous huge width */
+  }
+  .categories .category img {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .categories {
+    width: 60px; /* smaller sidebar for mobile */
+  }
+  .categories .category img {
+    width: 28px;
+    height: 28px;
+  }
+  
+}

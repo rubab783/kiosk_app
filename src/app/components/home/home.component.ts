@@ -1,14 +1,18 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { TopBarComponent } from '../top-bar/top-bar.component';
+import { CategoriesSidebarComponent } from '../categories-sidebar/categories-sidebar.component';
+import { FoodGridComponent } from '../food-grid/food-grid.component';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule],
-  templateUrl: './home.html',
-  styleUrls: ['./home.scss']
+  imports: [CommonModule, TopBarComponent, CategoriesSidebarComponent, FoodGridComponent],
+  templateUrl: './home.component.html',
+  styleUrls: ['./home.component.scss']
 })
 export class HomeComponent {
+  // keep same data you had
   categories = [
     { name: 'Burgers', icon: 'assets/images/categories/burger.png' },
     { name: 'Chinese', icon: 'assets/images/categories/chinese.png' },
@@ -23,5 +27,6 @@ export class HomeComponent {
     { name: 'Grilled Chicken Burger', image: 'assets/images/categories/classicburger.png', price: 10.50 },
     { name: 'Zinger Burger', image: 'assets/images/categories/classicburger.png', price: 8.99 },
     { name: 'Beef Steak Burger', image: 'assets/images/categories/classicburger.png', price: 12.45 },
+    // add more as needed
   ];
 }

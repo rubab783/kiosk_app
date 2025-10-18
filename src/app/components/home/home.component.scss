@@ -1,0 +1,22 @@
+@use '../../../styles.scss' as *;
+
+.home-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background: var(--bg-light);
+  font-family: 'IBM Plex Sans', sans-serif;
+  color: #fff;
+  padding: 1rem 1.5rem; /* slightly reduced padding */
+
+  .main-content {
+    flex: 1;
+    display: grid;
+    grid-template-columns: auto 1fr; /* sidebar auto, rest flexible */
+    gap: 0.8rem; /* reduced gap between sidebar and content */
+    align-items: start;
+    overflow: hidden;
+  }
+}
+
+/* responsive handled in child components (sidebar, food-grid) */

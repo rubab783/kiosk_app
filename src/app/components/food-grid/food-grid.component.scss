@@ -1,0 +1,21 @@
+.food-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* desktop: 4 cards per row */
+  gap: 1rem;
+  padding: 0.5rem;
+  overflow-y: auto;
+}
+
+@media (max-width: 1200px) {
+  .food-grid {
+    grid-template-columns: repeat(3, 1fr); /* tablet: 3 per row */
+    gap: 0.9rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .food-grid {
+    grid-template-columns: repeat(2, 1fr); /* phone: 2 per row */
+    gap: 0.7rem;
+  }
+}
