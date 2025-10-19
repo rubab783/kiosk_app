@@ -1,0 +1,28 @@
+<!-- Top Bar -->
+<div class="top-bar">
+  <button class="menu-icon" (click)="togglePopup()">☰</button>
+  <button class="order-btn">Order View</button>
+</div>
+
+<!-- Popup Overlay -->
+<div class="popup-overlay" *ngIf="showPopup" (click)="close()">
+  <div class="popup-box" (click)="$event.stopPropagation()">
+    <div class="popup-header">
+      <h2 class="popup-title">Menu Categories</h2>
+      <button class="close-btn" (click)="close()">×</button>
+    </div>
+
+    <!-- Category List -->
+    <ul class="category-list">
+      <li *ngFor="let category of categories">
+        <img class="cat-icon" [src]="category.icon" alt="icon" />
+        <span>{{ category.name }}</span>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<!-- Food Grid Section -->
+<div class="food-grid-section">
+  <app-food-grid [foods]="foods"></app-food-grid>
+</div>
