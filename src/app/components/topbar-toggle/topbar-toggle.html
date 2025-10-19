@@ -1,0 +1,28 @@
+<div class="home-container">
+  <!-- === TOP BAR === -->
+  <div class="top-bar">
+    <div class="left-group">
+      <button class="toggle-btn" (click)="toggleCategories()">
+        <i class="fa fa-bars"></i>
+      </button>
+      <div class="menu-title" *ngIf="showCategories">
+        Menu Categories
+      </div>
+    </div>
+
+    <button class="order-view">
+      Order View
+    </button>
+  </div>
+
+  <!-- === CATEGORIES BAR (HORIZONTAL BELOW TOP BAR) === -->
+  <div class="categories" [class.hide]="!showCategories">
+    <div class="category" *ngFor="let cat of categories">
+      <img [src]="cat.icon" alt="{{ cat.name }}" />
+      <p>{{ cat.name }}</p>
+    </div>
+  </div>
+
+  <!-- === FOOD GRID (Always visible) === -->
+  <app-food-grid [foods]="foods"></app-food-grid>
+</div>

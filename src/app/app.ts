@@ -1,11 +1,10 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { HomeComponent } from './components/home/home.component';
-
+import {TopbarToggleComponent} from './components/topbar-toggle/topbar-toggle'
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, HomeComponent],
+  imports: [TopbarToggleComponent],
   templateUrl: './app.html',
   styleUrls: ['./app.scss']
 })
