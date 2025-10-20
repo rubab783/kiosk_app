@@ -1,0 +1,58 @@
+<div class="add-to-cart-container">
+  <!-- Top Bar -->
+  <div class="topbar">
+    <button class="menu-btn">
+      <i class="fa fa-bars"></i>
+    </button>
+    <button class="order-view-btn">Order View</button>
+  </div>
+
+  <!-- Product Image -->
+  <div class="image-section">
+    <img src="assets/images/categories/burger.png" alt="Classic Chicken Burger" />
+  </div>
+
+  <!-- Product Details -->
+  <div class="details-section">
+    <h2 class="product-title">Classic Chicken Burger</h2>
+    <p class="price">$5.99</p>
+    <p class="desc">
+      Serves 1 — Grilled chicken patty weighing 130g combined with cheese slice,
+      lettuce and sauce; served with fries & coleslaw.
+    </p>
+
+    <div class="options">
+      <div class="option-group">
+        <h4>Sizes</h4>
+        <ul>
+          <li>Small</li>
+          <li>Medium</li>
+          <li>Large</li>
+        </ul>
+      </div>
+
+      <div class="option-group">
+        <h4>Flavors</h4>
+        <ul>
+          <li>BBQ</li>
+          <li>Fajita</li>
+          <li>Cheese</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="special-instructions">
+      <h4>Special Instructions</h4>
+      <textarea placeholder=""></textarea>
+    </div>
+
+    <div class="cart-actions">
+      <div class="quantity-control">
+        <button (click)="decreaseQty()">-</button>
+        <span>{{ quantity }}</span>
+        <button (click)="increaseQty()">+</button>
+      </div>
+      <button class="add-btn" (click)="addToCart()">Add to Cart <i class="arrow-icon bi bi-arrow-right"></i></button>
+    </div>
+  </div>
+</div>

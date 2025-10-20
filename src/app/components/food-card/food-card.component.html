@@ -5,6 +5,9 @@
       <span class="price">${{ food.price }}</span>
     </div>
     <img [src]="food.image" [alt]="food.name" />
-    <button class="add-btn">+ ADD TO BUCKET</button>
+
+<button class="add-btn" (click)="addToCart()">+ ADD TO BUCKET</button>
+
+
   </div>
 </div>
