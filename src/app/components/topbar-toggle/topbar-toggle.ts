@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FoodGridComponent } from '../food-grid/food-grid.component';
-
+import { FooterComponent } from '../footer/footer';
 @Component({
   selector: 'app-topbar-toggle',
   standalone: true,
-  imports: [CommonModule, FoodGridComponent],
+  imports: [CommonModule, FoodGridComponent,FooterComponent],
   templateUrl: './topbar-toggle.html',
   styleUrls: ['./topbar-toggle.scss']
 })
@@ -26,7 +26,9 @@ export class TopbarToggleComponent {
     { name: 'Grilled Chicken Burger', image: 'assets/images/categories/classicburger.png', price: 10.50 },
     { name: 'Zinger Burger', image: 'assets/images/categories/classicburger.png', price: 8.99 },
     { name: 'Beef Steak Burger', image: 'assets/images/categories/classicburger.png', price: 12.45 },
-  ];
+     { name: 'Beef Steak Burger', image: 'assets/images/categories/classicburger.png', price: 12.45 },
+    { name: 'Zinger Steak Burger', image: 'assets/images/categories/classicburger.png', price: 12.45 },
+    ];
 
   toggleCategories() {
     this.showCategories = !this.showCategories;

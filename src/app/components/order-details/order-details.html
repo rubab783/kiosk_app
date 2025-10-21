@@ -50,22 +50,29 @@
   <!-- Checkout Section -->
  <!-- Checkout Section -->
 <section class="checkout-container">
-  <h2 class="checkout-title">Checkout</h2>
+  <h2 class="checkout-title">Order Details</h2>
 
   <div class="checkout-form">
     <label for="instructions">Special Instructions</label>
-    <textarea id="instructions" ></textarea>
+    <textarea id="instructions"></textarea>
 
     <label for="order-type">Order Type</label>
     <select id="order-type" class="rounded-input">
-        <option>Dine in</option>
+      <option>Dine in</option>
       <option>Delivery</option>
       <option>Pickup</option>
     </select>
 
+    <!-- ✅ Address & Phone Fields -->
+    <label  for="address">Delivery Address</label>
+    <input class="rounded"type="text" id="address" placeholder="Enter your delivery address" class="rounded-input" />
+
+    <label for="phone">Phone Number</label>
+    <input  class="rounded"type="tel" id="phone" placeholder="Enter your phone number" class="rounded-input" />
+
     <label for="payment-method">Payment Method</label>
     <select id="payment-method" class="rounded-input">
-     <option>Card Payment</option>
+      <option>Card Payment</option>
       <option>Cash on Delivery</option>
       <option>Credit/Debit Card</option>
       <option>Online Payment</option>

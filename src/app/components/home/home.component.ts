@@ -3,11 +3,12 @@ import { CommonModule } from '@angular/common';
 import { TopBarComponent } from '../top-bar/top-bar.component';
 import { CategoriesSidebarComponent } from '../categories-sidebar/categories-sidebar.component';
 import { FoodGridComponent } from '../food-grid/food-grid.component';
-
+import { FooterComponent } from '../footer/footer';
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, TopBarComponent, CategoriesSidebarComponent, FoodGridComponent],
+  imports: [CommonModule, TopBarComponent, 
+    CategoriesSidebarComponent, FoodGridComponent,FooterComponent],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
@@ -27,6 +28,8 @@ export class HomeComponent {
     { name: 'Grilled Chicken Burger', image: 'assets/images/categories/classicburger.png', price: 10.50 },
     { name: 'Zinger Burger', image: 'assets/images/categories/classicburger.png', price: 8.99 },
     { name: 'Beef Steak Burger', image: 'assets/images/categories/classicburger.png', price: 12.45 },
+    { name: 'Zinger Steak Burger', image: 'assets/images/categories/classicburger.png', price: 12.45 },
+    { name: 'Classic Steak Burger', image: 'assets/images/categories/classicburger.png', price: 12.45 },
     // add more as needed
   ];
 }
