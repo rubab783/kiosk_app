@@ -16,7 +16,7 @@ export class OrderDetailsItemsComponent {
       size: 'S',
       quantity: 4,
       price: 5.49,
-      image: 'assets/images/categories/burger.png'
+      image: 'assets/images/categories/classicburger.png'
     },
     {
       name: 'Classic chicken burger',
@@ -24,7 +24,7 @@ export class OrderDetailsItemsComponent {
       size: 'S',
       quantity: 4,
       price: 5.49,
-      image: 'assets/images/categories/burger.png'
+      image: 'assets/images/categories/classicburger.png'
     },
     {
       name: 'Classic chicken burger',
@@ -32,7 +32,7 @@ export class OrderDetailsItemsComponent {
       size: 'S',
       quantity: 4,
       price: 5.49,
-      image: 'assets/images/categories/burger.png'
+      image: 'assets/images/categories/classicburger.png'
     },
     {
       name: 'Classic chicken burger',
@@ -40,7 +40,7 @@ export class OrderDetailsItemsComponent {
       size: 'S',
       quantity: 4,
       price: 5.49,
-      image: 'assets/images/categories/burger.png'
+      image: 'assets/images/categories/classicburger.png'
     }
   ];
 

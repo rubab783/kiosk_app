@@ -2,17 +2,21 @@
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  background:white;
-  font-family: 'IBM Plex Sans', sans-serif;
+  background: #fff;
+  font-family: 'Archivo', sans-serif;
   color: var(--text-dark);
+  overflow-x: hidden;
 
+  /* ✅ Topbar always visible and neat */
   .topbar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 0.75rem 1rem;
     background: #fff;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 
     .menu-btn {
       background: none;
@@ -20,6 +24,11 @@
       font-size: 1.5rem;
       color: var(--primary-color);
       cursor: pointer;
+      transition: transform 0.2s ease;
+     
+      &:hover {
+        transform: scale(1.1);
+      }
     }
 
     .order-view-btn {
@@ -29,9 +38,10 @@
       border-radius: 8px;
       padding: 0.3rem 0.75rem;
       font-size: 0.9rem;
+      font-weight: 500;
       cursor: pointer;
       transition: all 0.3s ease;
-
+       font-family: Archivo;
       &:hover {
         background: var(--primary-color);
         color: #fff;
@@ -39,19 +49,40 @@
     }
   }
 
-  /* ✅ Center text for h1, h2, and p */
+  /* ✅ Text styling based on Figma-like spacing */
   h1,
   h2,
   p {
     text-align: center;
+    margin: 0 auto;
+    line-height: 1.6rem;
   }
-    p{
-         font-weight: 500;
-         max-width: 320px; 
-      line-height: 1.4;
-      text-align: center;
-      margin: 2px auto;
-    }
+
+  h1 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-top: 1.5rem;
+    margin-bottom: 4rem;
+  }
+
+  h2 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    color: #333;
+  }
+
+  p {
+    line-height:2rem;
+    font-size: 0.95rem;
+    font-weight: 500;
+    max-width: 320px;
+    margin-bottom: 1.5rem;
+    color: #666;
+    letter-spacing: 0px;
+  }
+
+  /* ✅ Main content */
   .empty-content {
     flex: 1;
     display: flex;
@@ -62,9 +93,9 @@
     text-align: center;
 
     .cart-illustration {
-      width: 105px;
-      height: 144px;
-      margin-bottom: 2.5rem;
+      width: 110px;
+      height: 145px;
+      margin: 2rem 0 2.5rem;
 
       img {
         width: 100%;
@@ -72,18 +103,6 @@
         object-fit: contain;
         image-rendering: -webkit-optimize-contrast;
       }
-    }
-
-    h2 {
-      font-size: 1.3rem;
-      font-weight: 600;
-      margin-bottom: 0.4rem;
-    }
-
-    p {
-      font-size: 0.95rem;
-      color: #666;
-      margin-bottom: 1.5rem;
     }
 
     .start-shopping-btn {
@@ -95,23 +114,20 @@
       color: #fff;
       border: none;
       width: 184px;
-      height: 40px;
-      font-family: Archivo;
+      height: 42px;
       border-radius: 60px;
-      padding: 0.6rem 1.2rem;
+      font-family: Archivo;
       font-weight: 500;
       cursor: pointer;
       transition: all 0.3s ease;
 
       .arrow-icon {
-        color: #fff;
         font-size: 1rem;
         transition: transform 0.2s ease;
       }
 
       &:hover {
         background: var(--primary-color);
-
         .arrow-icon {
           transform: translateX(4px);
         }
@@ -119,26 +135,31 @@
     }
   }
 
-  /* ✅ Responsiveness — only added what’s needed */
+  /* ✅ Responsiveness */
   @media (max-width: 992px) {
+    h1 {
+      font-size: 1.6rem;
+      margin-top: 1.2rem;
+    }
+
+    h2 {
+      font-size: 1.1rem;
+    }
+
+    p {
+      font-size: 0.9rem;
+      max-width: 280px;
+    }
+
     .empty-content {
+      padding: 1.8rem 1rem;
+
       .cart-illustration {
-        margin-top: 0.2rem;
-        width: 120px;
-        height: 190px;
-      }
-     
-      h2 {
-        font-size: 1.1rem;
+        width: 95px;
+        height: 130px;
+        margin-bottom: 2rem;
       }
 
-      p {
-        font-size: 0.9rem;
-      }
-      .cart-illustration img{
-    margin-top:0px;
-    height:100px;
-   }
       .start-shopping-btn {
         width: 170px;
         height: 38px;
@@ -148,20 +169,41 @@
   }
 
   @media (max-width: 600px) {
+    .topbar {
+      padding: 0.6rem 0.8rem;
+
+      .menu-btn {
+        font-size: 1.3rem;
+      }
+
+      .order-view-btn {
+        padding: 0.25rem 0.6rem;
+        font-size: 0.8rem;
+      }
+    }
+
+    h1 {
+      font-size: 1.4rem;
+      margin-top: 4rem;
+      margin-bottom: 1rem;
+    }
+
+    h2 {
+      margin-top: 1rem;
+      font-size: 1rem;
+    }
+
+    p {
+      font-size: 0.85rem;
+      margin-bottom: 1rem;
+    }
+
     .empty-content {
       padding: 1.5rem 1rem;
 
       .cart-illustration {
         width: 80px;
         height: 100px;
-      }
-
-      h2 {
-        font-size: 1rem;
-      }
-
-      p {
-        font-size: 0.85rem;
       }
 
       .start-shopping-btn {

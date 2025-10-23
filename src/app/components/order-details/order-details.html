@@ -20,8 +20,8 @@
         <img [src]="item.image" alt="{{ item.name }}" class="item-image" />
         <div class="item-details">
           <h4>{{ item.name }}</h4>
-          <p>Color: {{ item.color }}</p>
-          <p>Size: {{ item.size }}</p>
+          <p>Color:<span> {{ item.color }}</span></p>
+          <p>Size: <span>{{ item.size }}</span></p>
           <div class="quantity-controls">
             <button (click)="decreaseQty(item)">
               <i class="fa fa-minus"></i>
